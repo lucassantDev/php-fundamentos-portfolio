@@ -3,75 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Portfólio Rocketseat - PHP</title>
 </head>
-<body>
+    <body class="bg-slate-900 text-white">
 
-    <?php
-        $primeiro_paragrafo = 'Olá';
-        $segundo_paragrafo = 'inicio do curso de php';
-    ?>
+        <!-- modularizando código -->
 
-    <h1>
-        Fundamentos PHP
-    </h1>
-    <p>
-        <?=$primeiro_paragrafo ?>
-    </p>
-    <h2>
-        Foreach e listas
-    </h2>
+        <!-- header.php -->
+        <?php include("./componentes/header.php");?>
 
-    <?php
-        
-        // array 
-        $projetos = [
-            'Portfólio',
-            'To-do list',
-            'Sistema de cadastro',
-            'Sistema de restaurante'
-        ];
+        <main class="mx-auto max-w-screen-lg min-h-20 px-3 py-6">
 
-        // array associativo
-        $usuarios = [
-            [
-                "Nome" => "Lucas Ferreira",
-                "Idade" => 20,
-                "Estado" => "PE",
-                "Cidade" => "Recife"
-            ],
-             [
-                "Nome" => "Outro Usuário",
-                "Idade" => 25,
-                "Estado" => "SP",
-                "Cidade" => "São Paulo"
-            ]
-            
+            <!-- hero.php(informações e redes) -->
+            <?php include("./componentes/hero.php");?>
 
-        ];
-    
-    ?>
+            <!-- projetos -->
+            <section class=" space-y-3 py-8">
 
-    <p>Foreach e lista SEM nomes e setas</p>
-    <ul>
-        <?php foreach($projetos as $projeto){
-            echo "<p>{$projeto}</p>";
-        } 
-        ?>
-    </ul>
+                <h2 class="text-2xl font-bold">Meus Projetos</h2>
+                
+                <!-- projetos.php -->
+                <?php include("./componentes/projetos.php");?>    
+            </section>
+        </main>
 
-    <p>Foreach e lista COM nomes e setas</p>
-    <ul>
-        <?php foreach($usuarios as $usuario){
-
-            echo "<li>{$usuario['Nome']}</li>";
-            echo "<li>{$usuario['Idade']}</li>";
-            echo "<li>{$usuario['Estado']}</li>";
-            echo "<li>{$usuario['Cidade']}</li>";
-            echo "------------------------------";
-        } 
-        ?>
-    </ul>
-    
-</body>
+        <!-- footer.php -->
+        <?php include("./componentes/footer.php");?>
+    </body>
 </html>
